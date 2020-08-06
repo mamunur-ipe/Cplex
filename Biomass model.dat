@@ -1,0 +1,41 @@
+/*********************************************
+ * OPL 12.6.3.0 Data
+ * Author: Mamunur Rahman
+ * Creation Date: Jul 31, 2017 at 2:08:10 PM
+ *********************************************/
+
+Harvester 			= {"Harvester_1", "Harvester_2"};
+HubStorage 			= {"HubStorage_1"};
+PreprocessionPlant 	= {"PPlant_1", "PPlant_2"};
+RefineryPlant 		= {"Refinery_1", "Refinery_2"};
+mode 				= {"Truck", "Rail", "Burge"};
+
+
+SheetConnection my_sheet("Biomass data.xlsx");
+
+c from SheetRead(my_sheet,"mode_cost");
+e from SheetRead(my_sheet,"mode_emission");
+capacity_1 from SheetRead(my_sheet,"capacity_harvester");
+capacity_2 from SheetRead(my_sheet,"capacity_hub_storage");
+capacity_3 from SheetRead(my_sheet,"capacity_preprocessing_plant");
+demand_4 from SheetRead(my_sheet,"demand_refinery_plant");
+
+distance_data_1 from SheetRead(my_sheet,"distance_ijm");
+distance_data_2 from SheetRead(my_sheet,"distance_ikm");
+distance_data_3 from SheetRead(my_sheet,"distance_jkm");
+//distance_data_4 from SheetRead(my_sheet,"distance_klm");
+//Alternative way to read data from excel
+distance_data_4 from SheetRead(my_sheet, "'Sheet1'!A32:D43");
+
+
+/////  Write results in excel file   ///////
+var_x1 to SheetWrite (my_sheet,"result1");
+var_x2 to SheetWrite (my_sheet,"result2");
+var_x3 to SheetWrite (my_sheet,"result3");
+var_x4 to SheetWrite (my_sheet,"result4");
+var_x4 to SheetWrite (my_sheet,"result4");
+
+/// write objective values in excel file
+cost to SheetWrite (my_sheet,"cost");
+emission to SheetWrite (my_sheet,"emission");
+ 
